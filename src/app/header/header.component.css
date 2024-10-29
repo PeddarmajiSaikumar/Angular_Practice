@@ -1,0 +1,24 @@
+h1{
+    color: indigo;
+}
+
+.active{
+    background-color: green;
+}
+
+.not-active{
+    background-color: red;
+}
+
+.active-border{
+    border: 5px solid yellow;
+}
+
+.not-active-border{
+    border: 5px solid blue;
+}
+
+.apple{
+    background-color:tomato;
+    border: 2px solid aqua;
+}

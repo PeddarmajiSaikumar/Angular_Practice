@@ -1,0 +1,44 @@
+<h1>Header Component Works</h1>
+<h2>{{title}}</h2>    <!-- String Interpolation -->
+
+<img [src]="imageURL" alt="LOGO"><br>     <!-- Property Binding -->
+
+
+<button disabled={{isDisabled}}>Disabled using Interpolation</button><br>
+<button [disabled]="isDisabled">Disabled using Property Binding</button><br>
+
+
+<!-- Class Binding from CSS file,TS,HTML -->
+<button [class.active]='isActive' 
+        [class.not-active]='!isActive'
+        [class.active-border]='isActive'
+        [class.not-active-border]='!isActive'>Click me</button><br>   <!-- is Active works when the button is in work and other vice versa-->
+
+<button [class.apple]="fruitName=='Apple'">Fruit Ninja</button><br>
+
+
+<!-- Style Binding -->
+
+<button [style.backgroundColor]="isActive?'green':'red'"
+        [style.border]="isActive?'3px solid yellow': '' ">Click</button><br>
+
+
+
+<!-- Event Binding -->
+<button (click)="buttonClick()">Click Me</button><br>
+
+
+<input type="text" (keyup)="keyEnter($event)"><br>
+<input type="text" (keyup.enter)="keyUpFiltering()"><br>
+
+
+<!-- Template Variable -->
+
+<input #myInput type="text">
+<button (click)="logInput(myInput.value)">Log Input</button>
+
+<!-- Two Way data Binding -->
+
+<input type="text"  [(ngModel)]="userName" placeholder="Enter Username">
+<p>Your Username is:{{userName}}</p>
+
