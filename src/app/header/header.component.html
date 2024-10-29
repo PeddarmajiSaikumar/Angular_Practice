@@ -1,66 +1,86 @@
 <h1>Header Component Works</h1>
-<h2>{{title}}</h2>    <!-- String Interpolation -->
+<h2>{{ title }}</h2>
+<!-- String Interpolation -->
 
-<img [src]="imageURL" alt="LOGO"><br>     <!-- Property Binding -->
+<img [src]="imageURL" alt="LOGO" /><br />
+<!-- Property Binding -->
 
-
-<button disabled={{isDisabled}}>Disabled using Interpolation</button><br>
-<button [disabled]="isDisabled">Disabled using Property Binding</button><br>
-
+<button disabled="{{ isDisabled }}">Disabled using Interpolation</button><br />
+<button [disabled]="isDisabled">Disabled using Property Binding</button><br />
 
 <!-- Class Binding from CSS file,TS,HTML -->
-<button [class.active]='isActive' 
-        [class.not-active]='!isActive'
-        [class.active-border]='isActive'
-        [class.not-active-border]='!isActive'>Click me</button><br>   <!-- is Active works when the button is in work and other vice versa-->
+<button
+  [class.active]="isActive"
+  [class.not-active]="!isActive"
+  [class.active-border]="isActive"
+  [class.not-active-border]="!isActive"
+>
+  Click me</button
+><br />
+<!-- is Active works when the button is in work and other vice versa-->
 
-<button [class.apple]="fruitName=='Apple'">Fruit Ninja</button><br>
-
+<button [class.apple]="fruitName == 'Apple'">Fruit Ninja</button><br />
 
 <!-- Style Binding -->
 
-<button [style.backgroundColor]="isActive?'green':'red'"
-        [style.border]="isActive?'3px solid yellow': '' ">Click</button><br>
-
-
+<button
+  [style.backgroundColor]="isActive ? 'green' : 'red'"
+  [style.border]="isActive ? '3px solid yellow' : ''"
+>
+  Click</button
+><br />
 
 <!-- Event Binding -->
-<button (click)="buttonClick()">Click Me</button><br>
+<button (click)="buttonClick()">Click Me</button><br />
 
-
-<input type="text" (keyup)="keyEnter($event)"><br>
-<input type="text" (keyup.enter)="keyUpFiltering()"><br>
-
+<input type="text" (keyup)="keyEnter($event)" /><br />
+<input type="text" (keyup.enter)="keyUpFiltering()" /><br />
 
 <!-- Template Variable -->
 
-<input #myInput type="text">
+<input #myInput type="text" />
 <button (click)="logInput(myInput.value)">Log Input</button>
 
 <!-- Two Way data Binding -->
 
-<input type="text"  [(ngModel)]="userName" placeholder="Enter Username">
-<p>Your Username is:{{userName}}</p>
-
+<input type="text" [(ngModel)]="userName" placeholder="Enter Username" />
+<p>Your Username is:{{ userName }}</p>
 
 <!-- Structural Directives -->
 
-<h2 *ngIf="isLoggedIn; else message">{{UserName}}</h2>   <!--Old Way-->
+<h2 *ngIf="isLoggedIn; else message">{{ UserName }}</h2>
+<!--Old Way-->
 
-<ng-template #message>  <!--using template Variable-->
-        <h4>User Not LoggedIn</h4>
+<ng-template #message>
+  <!--using template Variable-->
+  <h4>User Not LoggedIn</h4>
 </ng-template>
 <h4 *ngIf="!isLoggedIn">User Not LoggedIn</h4>
 
 <!-- New Way -->
 @if(isLoggedIn){
-        <h3>{{UserName}}</h3>
+<h3>{{ UserName }}</h3>
 }@else{
-        <h3>User Not LoggedIn(Loaded from above If Block)</h3>
+<h3>User Not LoggedIn(Loaded from above If Block)</h3>
 }
 
 <!-- You Can use this or the other way above as well -->
 @if(!isLoggedIn){
-        <h3>User Not LoggedIn(Loaded from above If Block)</h3>
+<h3>User Not LoggedIn(Loaded from above If Block)</h3>
 }
+
+<br>
+<br>
+
+
+<h4 *ngIf="isAdmin; else memberMessage">Welcome Admin</h4>
+
+<ng-template #memberMessage>
+        <h4 *ngIf="isMember; else guestMessage">Welcome Member</h4>
+</ng-template>
+
+<ng-template #guestMessage>
+        <h4 *ngIf="isGuest">Welcome Guest</h4>
+
+</ng-template>
 

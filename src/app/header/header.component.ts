@@ -43,4 +43,8 @@ export class HeaderComponent {
   isLoggedIn:boolean=false;
   UserName:string='John Doe';
 
+  isAdmin:boolean=false;
+  isMember:boolean=false;
+  isGuest:boolean=true;
+
 }
