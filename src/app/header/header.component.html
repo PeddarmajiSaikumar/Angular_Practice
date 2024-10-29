@@ -42,3 +42,25 @@
 <input type="text"  [(ngModel)]="userName" placeholder="Enter Username">
 <p>Your Username is:{{userName}}</p>
 
+
+<!-- Structural Directives -->
+
+<h2 *ngIf="isLoggedIn; else message">{{UserName}}</h2>   <!--Old Way-->
+
+<ng-template #message>  <!--using template Variable-->
+        <h4>User Not LoggedIn</h4>
+</ng-template>
+<h4 *ngIf="!isLoggedIn">User Not LoggedIn</h4>
+
+<!-- New Way -->
+@if(isLoggedIn){
+        <h3>{{UserName}}</h3>
+}@else{
+        <h3>User Not LoggedIn(Loaded from above If Block)</h3>
+}
+
+<!-- You Can use this or the other way above as well -->
+@if(!isLoggedIn){
+        <h3>User Not LoggedIn(Loaded from above If Block)</h3>
+}
+
